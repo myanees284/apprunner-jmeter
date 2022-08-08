@@ -9,5 +9,3 @@ export PATH=$PATH:$JMETER_BIN
 jmeter --version
 jmeter -n -t my_test.jmx -l my_test.csv -e -o my_test
 yum -y install httpd
-systemctl start httpd.service
-systemctl enable httpd.service
