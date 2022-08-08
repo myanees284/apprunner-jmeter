@@ -7,4 +7,4 @@ export JMETER_BIN=${JMETER_HOME}/bin
 export PATH=$PATH:$JMETER_BIN
 export PATH=$PATH:$JMETER_BIN
 jmeter --version
-./jmeter.sh -n -t my_test.jmx -l my_test.csv -e -o my_test
+jmeter -n -t my_test.jmx -l my_test.csv -e -o my_test
