@@ -6,7 +6,8 @@ export JMETER_HOME=/opt/apache-jmeter-5.5
 export JMETER_BIN=${JMETER_HOME}/bin
 export PATH=$PATH:$JMETER_BIN
 export PATH=$PATH:$JMETER_BIN
-jmeter --version
-jmeter -n -t my_test.jmx -l my_test.csv -e -o my_test
-yum -y install httpd
-/usr/sbin/httpd
+echo jmeter -n -t $1.jmx -l $1.csv -e -o $1
+#jmeter -n -t my_test.jmx -l $1.csv -e -o $1
+#mv my_test.csv my_test/
+#yum -y install httpd
+#/usr/sbin/httpd
