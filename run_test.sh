@@ -7,7 +7,7 @@ export JMETER_BIN=${JMETER_HOME}/bin
 export PATH=$PATH:$JMETER_BIN
 export PATH=$PATH:$JMETER_BIN
 echo jmeter -n -t $1.jmx -l $1.csv -e -o $1
-#jmeter -n -t my_test.jmx -l $1.csv -e -o $1
-#mv my_test.csv my_test/
+jmeter -n -t my_test.jmx -l $1.csv -e -o $1
+mv $1.csv $1/
 #yum -y install httpd
 #/usr/sbin/httpd
