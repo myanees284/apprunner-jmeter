@@ -1,4 +1,5 @@
 #!/bin/bash -e
-yum -y install httpd
-/usr/sbin/httpd
-curl google.com
+yum update -y
+yum install awscli -y
+aws --version
+aws s3 ls
