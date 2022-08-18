@@ -1,5 +1,6 @@
 #!/bin/bash -e
 rName=$(date +%F)_$(date +%s)
+echo $rName
 echo "*******************Downloading JMeter*******************"
 curl -L --silent https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.5.tgz > /tmp/apache-jmeter-5.5.tgz
 yum -y install tar
