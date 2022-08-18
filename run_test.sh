@@ -14,7 +14,7 @@ echo "*******************Test Complete*******************"
 mv $1_result.csv $1/
 yum install awscli -y
 echo "*******************Copying Results into S3 bucket*******************"
-aws s3 cp $1/ s3://loveisair/$1-$rName_html_report --recursive
+aws s3 cp $1/ s3://loveisair/$1-$rName-html-report --recursive
 echo "*******************Installing apache*******************"
 yum -y install httpd
 echo "*******************Running Apache*******************"
