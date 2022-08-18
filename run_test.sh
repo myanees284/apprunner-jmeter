@@ -17,4 +17,4 @@ aws s3 cp $1/ s3://loveisair/$1-$rName_html_report --recursive
 echo "*******************Installing apache*******************"
 yum -y install httpd
 echo "*******************Running Apache*******************"
-httpd #dummy step
+httpd
