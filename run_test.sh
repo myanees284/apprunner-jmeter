@@ -9,6 +9,7 @@ export PATH=$PATH:$JMETER_BIN
 export PATH=$PATH:$JMETER_BIN
 jmeter -n -t my_test.jmx -l $1_result.csv -e -o $1
 mv $1_result.csv $1/
+yum install awscli -y
 aws s3 cp $1/ s3://loveisair/$1-html-report --recursive
 yum -y install httpd #dummy step
 httpd #dummy step
