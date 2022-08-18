@@ -9,7 +9,7 @@ export JMETER_HOME=/opt/apache-jmeter-5.5
 export JMETER_BIN=${JMETER_HOME}/bin
 export PATH=$PATH:$JMETER_BIN
 echo "*******************Starting load test*******************"
-jmeter -n -t my_test.jmx -l $1_result.csv -e -o $1
+jmeter -n -t $1.jmx -l $1_result.csv -e -o $1
 echo "*******************Test Complete*******************"
 mv $1_result.csv $1/
 yum install awscli -y
