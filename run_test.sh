@@ -1,6 +1,4 @@
 #!/bin/bash -e
-yum update -y
-yum install awscli -y
 curl -L --silent https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.5.tgz > /tmp/apache-jmeter-5.5.tgz
 yum -y install tar
 tar -xzf /tmp/apache-jmeter-5.5.tgz -C /opt
