@@ -19,3 +19,5 @@ echo "*******************Installing apache*******************"
 yum -y install httpd
 echo "*******************Running Apache*******************"
 httpd
+sleep 5
+curl localhost:80
