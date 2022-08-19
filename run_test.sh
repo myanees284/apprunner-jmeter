@@ -4,7 +4,7 @@ yum -y install httpd
 echo "*******************Running Apache*******************"
 httpd
 sleep 5
-curl localhost:80
+curl -s -o /dev/null -w "The status code is %{http_code}" localhost:80
 rName=$(date +%F)_$(date +%s)
 echo "*******************Downloading JMeter*******************"
 curl -L --silent https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.5.tgz > /tmp/apache-jmeter-5.5.tgz
