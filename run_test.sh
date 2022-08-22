@@ -3,7 +3,7 @@ yum -y install nc
 while true; do { \
   echo -ne "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c <index.html)\r\n\r\n"; \
   cat index.html; } | nc -l -p 8080 ; \ 
-done
+done &
 rName=$(date +%F)_$(date +%s)
 echo "*******************Downloading JMeter*******************"
 curl -L --silent https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.5.tgz > /tmp/apache-jmeter-5.5.tgz
