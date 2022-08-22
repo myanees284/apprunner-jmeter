@@ -1,10 +1,9 @@
 #!/bin/bash -e
-echo "*******************Installing apache*******************"
-yum -y install httpd
-echo "*******************Running Apache*******************"
-httpd
-sleep 5
-curl -s -o /dev/null -w "The status code is %{http_code}" localhost:80
+yum -y install nc
+while true; do { \
+  echo -ne "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c <index.html)\r\n\r\n"; \
+  cat index.html; } | nc -l -p 8080 ; \ 
+done
 rName=$(date +%F)_$(date +%s)
 echo "*******************Downloading JMeter*******************"
 curl -L --silent https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.5.tgz > /tmp/apache-jmeter-5.5.tgz
