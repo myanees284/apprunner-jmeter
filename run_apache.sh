@@ -1,5 +1,5 @@
-#!/bin/bash -e
-yum update -y
-yum install awscli -y
-aws --version
-aws s3 ls
+#!/usr/bin/env bash
+while true; do { \
+  echo -ne "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c <index.html)\r\n\r\n"; \
+  cat index.html; } | nc -l -p 8080 ; \ 
+done
