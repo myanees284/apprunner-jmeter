@@ -2,4 +2,4 @@
 yum -y install httpd
 httpd -k start
 sleep 5
-curl localhost:80
+echo "--------"apache server started--------"
