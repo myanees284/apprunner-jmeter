@@ -1,5 +1,5 @@
 #!/bin/bash -e
 yum -y install httpd
-service httpd start
+httpd -k start
 sleep 5
 curl localhost:80
