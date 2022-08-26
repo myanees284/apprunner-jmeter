@@ -27,7 +27,7 @@ resource "aws_apprunner_service" "test111" {
           build_command = "chmod +x run_test.sh"
           port          = "80"
           runtime       = "CORRETTO_11"
-          start_command = "./run_test.sh my_test"
+          start_command = "./run_test_new.sh my_test loveisair"
         }
         configuration_source = "API"
       }
