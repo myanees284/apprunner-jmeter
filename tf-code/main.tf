@@ -25,7 +25,7 @@ resource "aws_apprunner_service" "test111" {
       code_configuration {
         code_configuration_values {
           build_command = "chmod +x run_test_new.sh"
-          port          = "80"
+          port          = "8080"
           runtime       = "CORRETTO_11"
           start_command = "./run_test_new.sh my_test loveisair"
         }
