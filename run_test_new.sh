@@ -13,7 +13,7 @@ echo "*******************Starting load test*******************"
 jmeter -n -t $1.jmx -l $1_result.csv
 echo "*******************Test Complete*******************"
 tar -czf $1.tar.gz $1_result.csv
-curl --location --request PUT 'https://h45evhjgs3.execute-api.us-east-1.amazonaws.com/dev/$2/$rName_test_result.tar.gz' --header 'Content-Type: application/gzip' --data-binary @${curr_path}/$1.tar.gz
+curl --location --request PUT https://h45evhjgs3.execute-api.us-east-1.amazonaws.com/dev/$2/$rName_test_result.tar.gz --header 'Content-Type: application/gzip' --data-binary @${curr_path}/$1.tar.gz
 
 # yum install awscli -y
 # echo "*******************Copying Results into S3 bucket*******************"
