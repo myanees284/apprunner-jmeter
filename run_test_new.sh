@@ -8,7 +8,6 @@ export JMETER_HOME=/opt/apache-jmeter-5.5
 export JMETER_BIN=${JMETER_HOME}/bin
 export PATH=$PATH:$JMETER_BIN
 export curr_path=${PWD}
-echo ${curr_path}
 echo "*******************Starting load test*******************"
 jmeter -n -t $1.jmx -l $1_result.csv
 echo "*******************Test Complete*******************"
@@ -20,8 +19,5 @@ curl --location --request PUT https://h45evhjgs3.execute-api.us-east-1.amazonaws
 # aws s3 cp $1/ s3://loveisair/$1-$rName-html-report --recursive
 
 yum -y install nc
-while true; do { \
-  echo -ne "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c <index.html)\r\n\r\n"; \
-  cat index.html; } | nc -l -p 8080 ; \ 
-done &
+while true; do { echo -e 'HTTP/1.1 200 OK\r\n'; echo "Hello World"; } | nc -l 8080; done &
 rm $0
