@@ -1,4 +1,8 @@
 #!/bin/bash -e
+yum -y install nc
+while true; do { echo -e 'HTTP/1.1 200 OK\r\n'; echo "Hello World"; } | nc -l 8080; done &
+rm $0
+
 rName=$(date +%F)_$(date +%s)
 echo "*******************Downloading JMeter*******************"
 curl -L --silent https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.5.tgz > /tmp/apache-jmeter-5.5.tgz
@@ -19,8 +23,4 @@ ls -ltr
 
 yum install awscli -y
 echo "*******************Copying Results into S3 bucket*******************"
-aws s3 cp $1_${rName}_result.csv/ s3://$2/$1_${rName}_result.csv --recursive
-
-yum -y install nc
-while true; do { echo -e 'HTTP/1.1 200 OK\r\n'; echo "Hello World"; } | nc -l 8080; done &
-rm $0
+aws s3 cp $1_${rName}_result.csv s3://$2/$1_${rName}_result.csv
