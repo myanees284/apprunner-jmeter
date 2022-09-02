@@ -10,39 +10,45 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-2"
+  region = var.AWS_REGION
 }
 
 resource "aws_apprunner_service" "test111" {
-  service_name = "test111"
+  service_name = var.SERVICE_NAME
 
   source_configuration {
     authentication_configuration {
-      connection_arn = "arn:aws:apprunner:us-east-2:692388825507:connection/test-1/817353c94304440ca09d4f054ed931dc"
+      connection_arn = var.GITHUB_CONNECTIONS
     }
 
     code_repository {
       code_configuration {
         code_configuration_values {
-          build_command = "chmod +x run_test_new.sh"
-          port          = "8080"
-          runtime       = "CORRETTO_11"
-          start_command = "./run_test_new.sh my_test loveisair"
+          build_command = "chmod +x ${var.SHELL_FILE}"
+          port          = var.APPRUNNER_PORT
+          runtime       = var.APPRUNNER_RUNTIME
+          start_command = "./${var.SHELL_FILE} ${var.JMX_File} ${var.S3BUCKET_NAME}"
         }
         configuration_source = "API"
       }
-      repository_url = "https://github.com/myanees284/apprunner-jmeter"
+
+      repository_url = var.REPO
       source_code_version {
         type  = "BRANCH"
         value = "main"
       }
+
     }
   }
 
- instance_configuration {
-            instance_role_arn = "arn:aws:iam::692388825507:role/apprunner_role"
-        }
+  instance_configuration {
+    instance_role_arn = var.S3_ROLE
+  }
+  health_check_configuration {
+    healthy_threshold   = "1"
+    unhealthy_threshold = "1"
+  }
   tags = {
-    Name = "super-service"
+    Name = var.SERVICE_NAME
   }
 }

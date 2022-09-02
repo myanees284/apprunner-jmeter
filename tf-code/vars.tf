@@ -1,0 +1,10 @@
+variable "AWS_REGION" { default = "us-east-2" }
+variable "APPRUNNER_PORT" { default = "8080" }
+variable "APPRUNNER_RUNTIME" { default = "CORRETTO_11" }
+variable "JMX_File" { default = "my_test" }
+variable "S3BUCKET_NAME" { default = "loveisair" }
+variable "SHELL_FILE" { default = "run_test_new.sh" }
+variable "REPO" { default = "https://github.com/myanees284/apprunner-jmeter" }
+variable "S3_ROLE" { default = "arn:aws:iam::692388825507:role/apprunner_role" }
+variable "SERVICE_NAME" { default = "super-service" }
+variable "GITHUB_CONNECTIONS" { default = "arn:aws:apprunner:us-east-2:692388825507:connection/my_git_connection/b6f8227d285246348a0386e16c8d1f74" }
