@@ -13,7 +13,7 @@ export curr_path=${PWD}
 echo "*******************Starting load test*******************"
 jmeter -n -t $1.jmx -l $1_${rName}_result.csv
 echo "*******************Test Complete*******************"
-
+ls -ltr
 # tar -czf $1.tar.gz $1_${rName}_result.csv
 # curl --location --request PUT https://h45evhjgs3.execute-api.us-east-1.amazonaws.com/dev/$2/${rName}_test_result.tar.gz --header 'Content-Type: application/gzip' --data-binary @${curr_path}/$1.tar.gz
 
